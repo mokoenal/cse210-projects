@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class Prompt
 {
-    private List<string> prompts { get; }
+    private List<string> _prompts { get; }
 
     public Prompt()
     {
-        prompts = new List<string>
+        _prompts = new List<string>
         {
             "Who was the most interesting person I interacted with today?",
             "What was the best part of my day?",
@@ -16,15 +16,14 @@ public class Prompt
             "What was the strongest emotion I felt today?",
             "If I had one thing I could do over today, what would it be?",
             "How can I better serve others?",
-            "Was I kind to thers today?",
+            "Was I kind to others today?",
         };
     }
 
     public string GetRandomPrompt()
     {
         Random rand = new Random();
-        int index = rand.Next(prompts.Count);
-        return prompts[index];
+        int index = rand.Next(_prompts.Count);
+        return _prompts[index];
     }
-
 }

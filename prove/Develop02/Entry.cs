@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class Entry
 {
-    public string Date { get; set; }
-    public string Prompt { get; set; }
-    public string Response { get; set; }
+    public string Date { get; private set; }
+    public string Prompt { get; private set; }
+    public string Response { get; private set; }
 
     public Entry(string date, string prompt, string response)
     {
@@ -13,7 +13,7 @@ public class Entry
         Prompt = prompt;
         Response = response;
     }
-    
+
     public void DisplayEntry()
     {
         Console.WriteLine($"Date: {Date}");
@@ -22,4 +22,3 @@ public class Entry
         Console.WriteLine();
     }
 }
-

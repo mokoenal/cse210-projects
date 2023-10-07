@@ -1,12 +1,16 @@
 Date: 2023-10-07
+Prompt: What was the best part of my day?
+Response: Spending time with my kids.
+
+Date: 2023-10-07
 Prompt: What was the strongest emotion I felt today?
-Response: Happiness
+Response: Happiness.
+
+Date: 2023-10-07
+Prompt: How can I better serve others?
+Response: By calling them and sending texts just to check on them.
 
 Date: 2023-10-07
 Prompt: Was I kind to others today?
-Response: Yes I was
-
-Date: 2023-10-07
-Prompt: What was the best part of my day?
-Response: spending time with my kids.
+Response: yes I was.
 
