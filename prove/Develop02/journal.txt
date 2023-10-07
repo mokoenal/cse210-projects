@@ -1,0 +1,12 @@
+Date: 2023-10-07
+Prompt: What was the strongest emotion I felt today?
+Response: Happiness
+
+Date: 2023-10-07
+Prompt: Was I kind to others today?
+Response: Yes I was
+
+Date: 2023-10-07
+Prompt: What was the best part of my day?
+Response: spending time with my kids.
+
