@@ -5,8 +5,8 @@ using System.Linq;
 // Class to encapsulate the responsibilities of a Scripture
 public class Scripture
 {
-    public ScriptureReference Reference { get; private set; }
-    private List<Word> Words { get; set; }
+    private ScriptureReference Reference { get; }
+    private List<Word> Words { get; }
 
     public Scripture(ScriptureReference reference, string text)
     {

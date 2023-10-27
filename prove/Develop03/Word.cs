@@ -3,34 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 
 // Class to encapsulate the responsibilities of a Word
-public class Word
+class Word
 {
     private string _text;
-    public string Text
-    {
-        get { return _text; }
-        private set { _text = value; }
-    }
-
-    public bool IsHidden { get; private set; }
+    private bool _isHidden;
 
     public Word(string text)
     {
-        Text = text;
-        IsHidden = false;
+        _text = text;
+        _isHidden = false;
     }
 
     public void Hide()
     {
-        IsHidden = true;
+        _isHidden = true;
+    }
+
+    public bool IsHidden
+    {
+        get { return _isHidden; }
     }
 
     public override string ToString()
     {
-        return IsHidden ? "_____" : Text;
+        return _isHidden ? "_____" : _text;
     }
 }
-
-
 
 

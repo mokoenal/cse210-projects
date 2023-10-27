@@ -6,18 +6,21 @@ using System.Linq;
 public class ScriptureReference
 {
     private string _reference;
+
     public string Reference
     {
+        
         get { return _reference; }
         private set { _reference = value; }
     }
 
     public ScriptureReference(string reference)
     {
-        Reference = reference;
+        _reference = reference; // Set the private field directly in the constructor
     }
 
-    public void SetReference(string reference)
+    // Make SetReference private to prevent external modifications
+    private void SetReference(string reference)
     {
         Reference = reference;
     }
