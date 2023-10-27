@@ -1,34 +1,35 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
- public class Word
+// Class to encapsulate the responsibilities of a Word
+public class Word
 {
     private string _text;
-    private bool _hidden;
-
-    public Word(string text)
-    {
-        _text = text;
-        _hidden = false; // By default, the word is not hidden.
-    }
-
     public string Text
     {
         get { return _text; }
+        private set { _text = value; }
     }
 
-    public bool Hidden
+    public bool IsHidden { get; private set; }
+
+    public Word(string text)
     {
-        get { return _hidden; }
-        set { _hidden = value; }
+        Text = text;
+        IsHidden = false;
+    }
+
+    public void Hide()
+    {
+        IsHidden = true;
+    }
+
+    public override string ToString()
+    {
+        return IsHidden ? "_____" : Text;
     }
 }
-
-
-
-
-
-
 
 
 

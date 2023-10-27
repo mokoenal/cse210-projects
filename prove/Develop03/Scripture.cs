@@ -1,51 +1,40 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
+// Class to encapsulate the responsibilities of a Scripture
 public class Scripture
 {
-    private Reference _reference;
-    private string _text;
-    private List<Word> _words;
+    public ScriptureReference Reference { get; private set; }
+    private List<Word> Words { get; set; }
 
-    public Scripture(Reference reference, string text)
+    public Scripture(ScriptureReference reference, string text)
     {
-        _reference = reference;
-        _text = text;
-        _words = new List<Word>();
-
-        // Initialize the list of words from the text (split the text into words).
-        string[] textWords = _text.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', '!', '?', ';', ':' }, StringSplitOptions.RemoveEmptyEntries);
-        foreach (string wordText in textWords)
-        {
-            _words.Add(new Word(wordText));
-        }
+        Reference = reference;
+        Words = text.Split(' ').Select(word => new Word(word)).ToList();
     }
 
-    public void Display()
-    {
-    Console.WriteLine($"{_reference.Chapter}:{_reference.StartVerse} {_text}");
-    Console.WriteLine();
-
-    foreach (Word word in _words)
-    {
-        Console.Write(word.Hidden ? "---- " : word.Text + " ");
-    }
-    Console.WriteLine();
-    }
-    public void HideRandomWord()
+    public void HideRandomWords(int count)
     {
         Random random = new Random();
-        List<Word> unhiddenWords = _words.FindAll(word => !word.Hidden);
-
-        if (unhiddenWords.Count > 0)
+        var visibleWords = Words.Where(word => !word.IsHidden).ToList();
+        for (int i = 0; i < count; i++)
         {
-            int randomIndex = random.Next(unhiddenWords.Count);
-            unhiddenWords[randomIndex].Hidden = true;
+            if (visibleWords.Count == 0)
+                break;
+            int index = random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
         }
     }
 
     public bool AllWordsHidden()
     {
-        return _words.TrueForAll(word => word.Hidden);
+        return Words.All(word => word.IsHidden);
+    }
+
+    public override string ToString()
+    {
+        return $"{Reference} - {string.Join(" ", Words)}";
     }
 }
