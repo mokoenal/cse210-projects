@@ -1,0 +1,3 @@
+SimpleGoal:give a talk:50:False
+EternalGoal:go to the temple:0:False
+ChecklistGoal:study the scriptures:100:False
