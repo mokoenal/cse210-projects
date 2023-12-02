@@ -9,17 +9,15 @@ public class SimpleGoal : Goal
         this.points = points;
     }
 
-    public override void RecordEvent()
-    {
-        if (!completed)
-        {
-            points += 100;
-            completed = true;
-            Console.WriteLine($"Congratulations! You earned {points} points for completing the goal: {name}");
-        }
-        else
-        {
-            Console.WriteLine($"Goal '{name}' is already completed.");
-        }
-    }
+public override void RecordEvent()
+{
+    points += 100;
+    Console.WriteLine($"Congratulations! You earned 100 points for completing the goal: {name}");
+    completed = true;
+}
+
+public override void Display()
+{
+    Console.WriteLine($"Simple Goal: {name} {(completed ? $", Points: {points}" : "")} {(completed ? "[X]" : "[]")}");
+}
 }

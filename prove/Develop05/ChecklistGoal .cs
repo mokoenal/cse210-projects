@@ -17,23 +17,22 @@ public class ChecklistGoal : Goal
     public override void RecordEvent()
     {
         completedCount++;
-
-        if (completedCount < requiredCount)
+        if (completedCount <= requiredCount)
         {
-            Console.WriteLine($"Event recorded for '{name}'. {completedCount}/{requiredCount} completed.");
-        }
-        else if (completedCount == requiredCount)
-        {
-            Console.WriteLine($"Congratulations! You completed the checklist goal '{name}' and earned {points} points.");
+            Console.WriteLine($"Congratulations! You earned {points} points for completing the goal: {name}");
+            points = 0; // Reset bonus points after achieving the required count
+            completed = (completedCount == requiredCount); // Set completed to true when required count is achieved
         }
         else
         {
-            Console.WriteLine($"Error: The checklist goal '{name}' has already been completed the required {requiredCount} times.");
+            Console.WriteLine($"Congratulations! You earned 50 points for completing the goal: {name}");
+            points += 50; // Example points for simplicity
+            completed = true;
         }
     }
 
     public override void Display()
     {
-        Console.WriteLine($"{name} Completed: {completedCount}/{requiredCount}");
+        Console.WriteLine($"Goal: {name}, Progress: {completedCount}/{requiredCount}, Points: {points} {(completed ? "[X]" : "[]")}");
     }
 }
