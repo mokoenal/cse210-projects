@@ -3,9 +3,9 @@ using System;
 // Address class to encapsulate address details
 public class Address
 {
-    public string Street { get; }
-    public string City { get; }
-    public string Country { get; }
+    private string Street;
+    private string City;
+    private string Country;
 
     public Address(string street, string city, string country)
     {
