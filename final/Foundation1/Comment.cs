@@ -3,18 +3,17 @@ using System.Collections.Generic;
 
 public class Comment
 {
-    private string CommenterName;
-    private string Text;
+    private string _commenterName;
+    private string _text;
 
     public Comment(string commenterName, string text)
     {
-        CommenterName = commenterName;
-        Text = text;
+        _commenterName = commenterName;
+        _text = text;
     }
+
     public string GetCommentDetails()
     {
-
-        return $"{CommenterName} : {Text}";
+        return $"Commenter: {_commenterName}, Text: {_text}";
     }
-
 }

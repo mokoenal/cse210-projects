@@ -4,17 +4,17 @@ using System.Collections.Generic;
 // Derived Reception class
 public class Reception : Event
 {
-    private string rsvpEmail;
+    private string _rsvpEmail;
 
     // Constructor for the Reception class
     public Reception(string title, string description, DateTime date, TimeSpan time, Address address, string rsvpEmail)
         : base(title, description, date, time, address)
     {
-        this.rsvpEmail = rsvpEmail;
+        _rsvpEmail = rsvpEmail;
     }
 
     public override string GetFullDetails()
     {
-        return $"{base.GetFullDetails()}\nRSVP Email: {rsvpEmail}";
+        return $"{base.GetFullDetails()}\nRSVP Email: {_rsvpEmail}";
     }
 }

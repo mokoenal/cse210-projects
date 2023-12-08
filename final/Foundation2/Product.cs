@@ -3,26 +3,26 @@ using System.Collections.Generic;
 
 public class Product
 {
-    private string Name;
-    private string ProductId;
-    private double Price;
-    private int Quantity;
+    private string _name;
+    private string _productId;
+    private double _price;
+    private int _quantity;
 
     public Product(string name, string productId, double price, int quantity)
     {
-        Name = name;
-        ProductId = productId;
-        Price = price;
-        Quantity = quantity;
+        _name = name;
+        _productId = productId;
+        _price = price;
+        _quantity = quantity;
     }
 
     public double GetTotalPrice()
     {
-        return Price * Quantity;
+        return _price * _quantity;
     }
 
     public string GetProductDetails()
     {
-        return $"Name: {Name}, Product ID: {ProductId}, Price: ${Price}, Quantity: {Quantity}";
+        return $"Name: {_name}, Product ID: {_productId}, Price: ${_price}, Quantity: {_quantity}";
     }
 }

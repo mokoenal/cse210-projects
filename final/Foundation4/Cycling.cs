@@ -3,30 +3,30 @@ using System.Collections.Generic;
 
 public class Cycling : Activity
 {
-    private double speed;
+    private double _speed;
 
     public Cycling(DateTime date, int lengthInMinutes, double speed) : base(date, lengthInMinutes)
     {
-        this.speed = speed;
+        _speed = speed;
     }
 
     public override double GetSpeed()
     {
-        return speed;
+        return _speed;
     }
 
     public override double GetDistance()
     {
-        return speed * (lengthInMinutes / 60.0); // Distance in miles
+        return _speed * (_lengthInMinutes / 60.0); // Distance in miles
     }
 
     public override double GetPace()
     {
-        return 60 / speed; // Pace in minutes per mile
+        return 60 / _speed; // Pace in minutes per mile
     }
 
     public override string GetSummary()
     {
-        return base.GetSummary() + $" - Distance: {GetDistance()} miles, Speed: {speed} mph, Pace: {GetPace()} min per mile";
+        return base.GetSummary() + $" - Distance: {GetDistance()} miles, Speed: {_speed} mph, Pace: {GetPace()} min per mile";
     }
 }

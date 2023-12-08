@@ -3,29 +3,29 @@ using System.Collections.Generic;
 
 public class Order
 {
-    private List<Product> Products;
-    private Customer Customer;
+    private List<Product> _products;
+    private Customer _customer;
 
     public Order(Customer customer)
     {
-        Products = new List<Product>();
-        Customer = customer;
+        _products = new List<Product>();
+        _customer = customer;
     }
 
     public void AddProduct(Product product)
     {
-        Products.Add(product);
+        _products.Add(product);
     }
 
     public double CalculateTotalPrice()
     {
         double totalPrice = 0;
-        foreach (var product in Products)
+        foreach (var product in _products)
         {
             totalPrice += product.GetTotalPrice();
         }
 
-        if (Customer.IsInUSA())
+        if (_customer.IsInUSA())
         {
             totalPrice += 5;
         }
@@ -40,7 +40,7 @@ public class Order
     public string GetPackingLabel()
     {
         string label = "";
-        foreach (var product in Products)
+        foreach (var product in _products)
         {
             label += $"{product.GetProductDetails()}\n";
         }
@@ -49,7 +49,7 @@ public class Order
 
     public string GetShippingLabel()
     {
-        return $"Customer: {Customer.GetCustomerDetails()}";
+        return $"Customer: {_customer.GetCustomerDetails()}";
     }
 
     public void DisplayOrderDetails()

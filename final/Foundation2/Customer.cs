@@ -3,22 +3,22 @@ using System.Collections.Generic;
 
 public class Customer
 {
-    private string Name;
-    private Address CustomerAddress;
+    private string _name;
+    private Address _customerAddress;
 
     public Customer(string name, Address address)
     {
-        Name = name;
-        CustomerAddress = address;
+        _name = name;
+        _customerAddress = address;
     }
 
     public bool IsInUSA()
     {
-        return CustomerAddress.IsInUSA();
+        return _customerAddress.IsInUSA();
     }
 
     public string GetCustomerDetails()
     {
-        return $"Name: {Name}, Address: {CustomerAddress.GetFullAddress()}";
+        return $"Name: {_name}, Address: {_customerAddress.GetFullAddress()}";
     }
 }

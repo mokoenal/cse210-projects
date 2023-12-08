@@ -3,26 +3,26 @@ using System.Collections.Generic;
 
 public class Address
 {
-    private string Street;
-    private string City;
-    private string State;
-    private string Country;
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
 
     public Address(string street, string city, string state, string country)
     {
-        Street = street;
-        City = city;
-        State = state;
-        Country = country;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
     }
 
     public bool IsInUSA()
     {
-        return Country.ToLower() == "usa";
+        return _country.ToLower() == "usa";
     }
 
     public string GetFullAddress()
     {
-        return $"{Street}, {City}, {State}, {Country}";
+        return $"{_street}, {_city}, {_state}, {_country}";
     }
 }

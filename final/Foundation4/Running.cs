@@ -3,31 +3,30 @@ using System.Collections.Generic;
 
 public class Running : Activity
 {
-    private double distance;
+    private double _distance;
 
     public Running(DateTime date, int lengthInMinutes, double distance) : base(date, lengthInMinutes)
     {
-        this.distance = distance;
+        _distance = distance;
     }
 
     public override double GetDistance()
     {
-        return distance;
+        return _distance;
     }
 
     public override double GetSpeed()
     {
-        return distance / (lengthInMinutes / 60.0); // Speed in miles per hour
+        return _distance / (_lengthInMinutes / 60.0); // Speed in miles per hour
     }
 
     public override double GetPace()
     {
-        return lengthInMinutes / distance; // Pace in minutes per mile
+        return _lengthInMinutes / _distance; // Pace in minutes per mile
     }
 
     public override string GetSummary()
     {
-        return base.GetSummary() + $" - Distance: {distance} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
+        return base.GetSummary() + $" - Distance: {_distance} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
 }
-

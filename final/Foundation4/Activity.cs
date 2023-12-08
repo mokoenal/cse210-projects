@@ -4,32 +4,32 @@ using System.Collections.Generic;
 // Base Event class
 public class Activity
 {
-    private DateTime date;
-    protected int lengthInMinutes;
+    private DateTime _date;
+    protected int _lengthInMinutes;
 
     public Activity(DateTime date, int lengthInMinutes)
     {
-        this.date = date;
-        this.lengthInMinutes = lengthInMinutes;
+        _date = date;
+        _lengthInMinutes = lengthInMinutes;
     }
 
     public virtual double GetDistance()
     {
-        return 0; //base class doesn't have a specific calculation
+        return 0; // Base class does not have a specific distance calculation
     }
 
     public virtual double GetSpeed()
     {
-        return 0; //base class doesn't have a specific calculation
+        return 0; // Base class does not have a specific speed calculation
     }
 
     public virtual double GetPace()
     {
-        return 0; //base class doesn't have a specific calculation
+        return 0; // Base class does not have a specific pace calculation
     }
 
     public virtual string GetSummary()
     {
-        return $"{date:dd MMM yyyy} - {GetType().Name} ({lengthInMinutes} min)";
+        return $"{_date:dd MMM yyyy} - {GetType().Name} ({_lengthInMinutes} min)";
     }
 }
